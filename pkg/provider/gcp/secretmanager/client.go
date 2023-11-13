@@ -140,7 +140,7 @@ func (c *Client) PushSecret(ctx context.Context, secret *corev1.Secret, pushSecr
 
 	if err != nil {
 		fmt.Println("status code error:", status.Code(err))
-		if status.Code(err) != codes.NotFound {
+		if status.Code(err) != codes.NotFound || status.Code(err) != codes.PermissionDenied {
 			return err
 		}
 
