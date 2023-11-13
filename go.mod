@@ -1,4 +1,4 @@
-module github.com/external-secrets/external-secrets
+module github.com/bradolson-virta/external-secrets
 
 go 1.21
 
