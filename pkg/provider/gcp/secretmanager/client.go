@@ -139,6 +139,7 @@ func (c *Client) PushSecret(ctx context.Context, secret *corev1.Secret, pushSecr
 	metrics.ObserveAPICall(constants.ProviderGCPSM, constants.CallGCPSMGetSecret, err)
 
 	if err != nil {
+		fmt.Println("status code error:", status.Code(err))
 		if status.Code(err) != codes.NotFound {
 			return err
 		}
