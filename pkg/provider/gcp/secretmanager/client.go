@@ -143,6 +143,7 @@ func (c *Client) PushSecret(ctx context.Context, secret *corev1.Secret, pushSecr
 		if status.Code(err) != codes.NotFound || status.Code(err) != codes.PermissionDenied {
 			return err
 		}
+		fmt.Println("attempting create")
 
 		gcpSecret, err = c.smClient.CreateSecret(ctx, &secretmanagerpb.CreateSecretRequest{
 			Parent:   fmt.Sprintf("projects/%s", c.store.ProjectID),
